@@ -4,10 +4,13 @@
 - las fichas, los instructores y los ambientes se conectan en las competencias
 - de cada competencia derivan varios resultados
 - el instructor de FICHA y el instructor de COMPETENCIAS TIENEN NIVELES JERARQUICOS DIFERENTES
+- hice que horario jornada y dias dejen de ser entidades necesarias, puesto que no entendi su funcionamiento (hice que idjoranada puediera ser nulo en la declaracion de una competencia): para crear una competencia necesitas una jornada, para crear una jornada un dia, para un dia un horario, pero para un horario un dia y una jornada? es imposible crear registros en esas 3 tablas.
 
 # correcciones:
 
 - los telefonos deben ser de 12 caracteres para admitir conjunto de numeros con este formato : (###) - (###) - (####)
+
+- una misma competencia puede ser dada por varios profesores distintos y un instructor puede dar varias competencias, asi que se inhabilita el campo idinstructor de competecia y se deja la tabla instructor/competencia
 
 # tablas esenciales ( no derivan ni dependen de ninguna otra ):
 
@@ -29,5 +32,4 @@
 
 - seria mejor tener la base de datos que tiene el coordinador (solo el modelo sin la informacion es suficiente)
 - dado que el coordinador ya tiene su aplicativo, subir unicamente la base de datos, conectar el aplicativo con esta y enfocarse en los usuarios secundarios (instructores, que tendran metodo de ingreso, aunque ya que sus funciones se limitan a el recibimiento y envio de informacion (informes y solicitudes respectivmente), esta tarea puede ser deducida por ellos mismos a traves de sus correos)
-- la relacion ambiente/competencia es la mas importante a la hora de representar los horarios
-
+- la entidad asignacion sera cada una de las unidades de informacion que se mostrara en los horarios. relacionara una resultado (< competencia < ficha+instructor+ambiente < programa + instructor) con una semana, un dia de semana y una hora de inicio.

@@ -8,195 +8,104 @@
     <title>SENA HORARIOS</title>
 </head>
 <body>
-    <header class="header">
-        <i>
-            icono
-        </i>
-        <div>
-            <ul>
-                <li><a href="#ingresar">ingresar</a></li>
-                <li><a href="#consultar">horarios</a></li>
-                <li><a href="#contacto">contacto</a></li>
-            </ul>
-        </div>
-    </header>
-    <main>
-        <section class="consnultar" id="#">
+    <div>
+        <header class="header">
+            <i>
+                icono
+            </i>
             <div>
-                <form action="">
-                    <h3>con sulte su horario por ficha</h3>
-                    <div><input type="text"><input type="button" value=""></div>
-                </form>
+                <ul>
+                    <li><a href="#ingresar">ingresar</a></li>
+                    <li><a href="#consultar">horarios</a></li>
+                    <li><a href="#contacto">contacto</a></li>
+                </ul>
             </div>
-            <div class="horario">
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="7">horarios actualizados {{fecha}}</th>
-                        </tr>
-                        <tr>
-                            <th>hora</th>
-                            <th>Lunes</th>
-                            <th>Martes</th>
-                            <th>Jueves</th>
-                            <th>Viernes</th>
-                            <th>Sabado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr class="hora">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th colspan="7">ficha {{ficha}}</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </section>
-
-        <section class="ingresar">
-            <div>
-                <form action="">
-                    <h3>coordinador</h3>
-                    <div><label for=""></label><input type="text"></div>
-                    <div><label for=""></label><input type="text"></div>
-                    <div><input type="button" value=""></div>
-                </form>
-            </div>
-            <div>
-                <form action="">
-                    <h3>instructor</h3>
-                    <div><label for=""></label><input type="text"></div>
-                    <div><label for=""></label><input type="text"></div>
-                    <div><input type="button" value=""></div>
-                </form>
-            </div>
-        </section>
-        
-        <section class="contacto" id="contacto">
-            <div>
-                <h3>contacto</h3>
-                <form action="">
-                    <div><label for=""></label><input type="text"></div>
-                    <div><label for=""></label><input type="text"></div>
-                    <div><label for=""></label><input type="text"></div>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <input type="button" value="enviar">
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <section class=""></section>
-        <section class="bottom">todos los derechos reservados</section>
-    </footer>
+        </header>
+        <main>
+            <section class="consultar" id="#">
+                <div>
+                    <div class="container-busqueda">
+                        <form action="">
+                            <h3>consulte su horario por ficha</h3>
+                            <div class="input-db"><input type="text"><input type="button" value="buscar"></div>
+                        </form>
+                    </div>
+                    <div class="container-table horario">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="7">HORARIOS ACTUALIZADOS {{<input type="date">}}</th>
+                                </tr>
+                                <tr>
+                                    <th>hora</th>
+                                    <th>Lunes</th>
+                                    <th>Martes</th>
+                                    <th>Miercoles</th>
+                                    <th>Jueves</th>
+                                    <th>Viernes</th>
+                                    <th>Sabado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <th>x</th>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="7">ficha {{ficha}}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                
+            </section>
+    
+            <section class="ingresar">
+                <h2>INGRESE</h2>
+                <div>
+                    <form action="">
+                        <h3>coordinador</h3>
+                        <div><label for=""></label><input type="text"></div>
+                        <div><label for=""></label><input type="text"></div>
+                        <div><input type="button" value=""></div>
+                    </form>
+                </div>
+                <div>
+                    <form action="">
+                        <h3>instructor</h3>
+                        <div><label for=""></label><input type="text"></div>
+                        <div><label for=""></label><input type="text"></div>
+                        <div><input type="button" value=""></div>
+                    </form>
+                </div>
+            </section>
+            
+            <section class="contacto" id="contacto">
+                <div>
+                    <h3>contacto</h3>
+                    <form action="">
+                        <div><label for=""></label><input type="text"></div>
+                        <div><label for=""></label><input type="text"></div>
+                        <div><label for=""></label><input type="text"></div>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <input type="button" value="enviar">
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <section class=""></section>
+            <section class="bottom">todos los derechos reservados</section>
+        </footer>
+    </div>
+    
 </body>
 </html>
