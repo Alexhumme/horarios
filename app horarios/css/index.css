@@ -81,13 +81,30 @@ section{
    
 }
 .container-table tbody{
-
+    
 }
 .container-table td{
     background-color: white;
     height: 42px;
     border: solid 1px rgba(0, 0, 0, 0.226);
     padding: 5px;
+}
+.container-table .asignacion:hover{
+    background-color: darkgray;
+}
+.container-table .asignacion .info{
+    position: absolute;
+    display: none;
+    background-color: rgb(226, 112, 35);
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+}
+.info .dato{
+    text-align: left;
+}
+.container-table .asignacion:hover > .info{
+    display:block;
 }
 .container-table th{
     background-color: rgba(128, 128, 128, 0.712);
