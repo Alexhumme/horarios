@@ -4,9 +4,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
     <title>SENA horarios - coordinador</title>
 </head>
 <body>
-    
+    <header class="header">
+        <i><a href="index.php"> icono </a></i>
+        <div>
+            <ul>
+                <li><a href="#ingresar">ingresar</a></li>
+                <li><a href="#consultar">horarios</a></li>
+                <li><a href="#contacto">contacto</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="conteainer-page">
+            <aside class="container-sect menu">
+                <div>
+                    <i>icono</i>
+                    <span><b>nombre del coordinador</b></span>
+                    <span>coordinador</span>
+                </div>
+                <ul>
+                    <li><input type="radio" name="opc_modulo" id="mdl_asig"><label for="mdl_asig">Asignaciones</label></li>
+                    <li><input type="radio" name="opc_modulo" id="mdl_intr"><label for="mdl_intr">Intructores</label></li>
+                    <li><input type="radio" name="opc_modulo" id="mdl_ambt"><label for="mdl_ambt">Ambientes</label></li>
+                    <li><input type="radio" name="opc_modulo" id="mdl_fchs"><label for="mdl_fchs">Fichas</label></li>
+                </ul>
+            </aside>
+            <aside class="conainer-sect">
+                <section class="modulo" id="adm_asig">
+                </section>
+                <section class="modulo" id="adm_intr">
+                    <div class="container-table adm_intr">
+                        <form action="" method="post">
+                        <table>
+                            <thead>
+                                <tr><th colspan="8">instructores</th></tr>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Documento</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Telefono</th>
+                                    <th>E-mail</th>
+                                    <th>contratista</th>
+                                    <th>activo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>x</th>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td>x</td>
+                                    <td class="opt">
+                                        opciones
+                                        <ul>
+                                            <li><a href=""> eliminar </a></li>
+                                            <li><a href=""> editar </a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="add">
+                                        <td class="input-cont"><input type="text" required></td>
+                                        <td class="input-cont"><input type="text" required></td>
+                                        <td class="input-cont"><input type="text" required></td>
+                                        <td class="input-cont"><input type="text" required></td>
+                                        <td class="input-cont"><input type="text" required></td>
+                                        <td class="input-cont"><input type="text" required></td>
+                                        <td class="input-cont"><input type="checkbox"></td>
+                                        <td class="input-cont"><input type="checkbox"></td>
+                                        <td class="input-cont"><input type="reset" value="cancelar"></td>
+                                        <td class="input-cont"><input type="submit" value="añadir"></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </form>
+                    </div>
+                </section>
+                <section class="modulo" id="adm_ambt">
+                </section>
+                <section class="modulo" id="adm_fchs">
+                </section>
+            </aside>
+        </div>
+    </main>
+    <footer class="footer">
+        <section class=""></section>
+        <section class="bottom"> <b>© 2022 CENTRO INDUSTRIAL Y DE ENERGIAS ALTERNATIVAS -</b>  todos los derechos reservados</section>
+    </footer>
 </body>
 </html>

@@ -6,7 +6,21 @@
     $ficha = $_GET['ficha'];
     if ($ficha == ''){$ficha = FALSE;}
     if($ficha){
-        $sql = "SELECT *,LCASE(DAYNAME(asignaciones.fecha)) AS nom_dia FROM asignaciones WHERE idficha = $ficha";
+        $sql = "
+            SELECT 
+            hora_inicio,
+            idresultado AS id_resultado,
+            idambiente AS id_ambiente,
+            idinstructor AS id_instructor,
+            LCASE(DAYNAME(asignaciones.fecha)) AS nom_dia, 
+            (SELECT idcompetencia FROM resultados WHERE idresultado = id_resultado) AS id_competencia,
+            (SELECT competencia FROM competencias WHERE idcompetencia = id_competencia) AS nom_competencia,
+            (SELECT resultado FROM resultados WHERE idresultado = id_resultado) AS nom_resultado,
+            (SELECT ambiente FROM ambientes WHERE idambiente = id_ambiente) AS nom_ambiente,
+            (SELECT nombre FROM instructor WHERE idinstructor = id_instructor) AS nom_instructor,
+            (SELECT apellido FROM instructor WHERE idinstructor = id_instructor) AS apl_instructor
+            FROM asignaciones WHERE idficha = $ficha
+            ";
         imprimir($sql);
         $consulta = mysqli_query($conexion,$sql);
         if($consulta != false and mysqli_num_rows($consulta)> 0){
@@ -48,7 +62,7 @@
 <body>
     <div>
         <header class="header">
-            <i> icono </i>
+            <i><a href="index.php"> icono </a></i>
             <div>
                 <ul>
                     <li><a href="#ingresar">ingresar</a></li>
@@ -101,13 +115,13 @@
                                         foreach($asignaciones as $asignacion){ // para todas las asignaciones encontradas
                                             if ($hora == $asignacion['hora_inicio'] and $codDia == $asignacion['nom_dia']){
                                     ?>
-                                    <td class="asignacion">
-                                        competencia
+                                    <td class="registro">
+                                        <?php echo $asignacion['nom_competencia'] ?>
                                         <div class="info">
-                                            <div class="dato">instructor: <span>x</span></div>
-                                            <div class="dato">resultado: <span>x</span></div>
-                                            <div class="dato">ambiente: <span>x</span></div>
-                                            <div class="dato">horas restantes: <span>x</span></div>
+                                            <div class="dato"><b> instructor:</b> <span><?php echo $asignacion['nom_instructor']." ".$asignacion['apl_instructor'] ?></span></div>
+                                            <div class="dato"><b> resultado: </b><span><?php echo $asignacion['nom_resultado'] ?></span></div>
+                                            <div class="dato"><b> ambiente: </b><span><?php echo $asignacion['nom_ambiente'] ?></span></div>
+                                            <div class="dato"><b> horas restantes: </b><span>x</span></div>
                                         </div>
                                     </td>
                                     <?php
@@ -115,7 +129,7 @@
                                             }else{
                                                 if (end($asignaciones) == $asignacion){ // si el registro que se esta revisando es el uñtimo de la tabla     
                                     ?>
-                                    <td><?php //echo $codDia ?></td>
+                                    <td class="libre">libre</td>
                                     <?php    
                                                 }
                                             }
@@ -145,7 +159,7 @@
                 <h2>INGRESE</h2>
                 <div>
                     <form action="">
-                        <h3>coordinador</h3>
+                        <h3><a href="coordinador.html">coordinador</a></h3>
                         <div><label for=""></label><input type="text"></div>
                         <div><label for=""></label><input type="text"></div>
                         <div><input type="button" value=""></div>
@@ -176,7 +190,7 @@
         </main>
         <footer class="footer">
             <section class=""></section>
-            <section class="bottom">todos los derechos reservados</section>
+            <section class="bottom"> <b>© 2022 CENTRO INDUSTRIAL Y DE ENERGIAS ALTERNATIVAS -</b>  todos los derechos reservados</section>
         </footer>
     </div>
     <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
