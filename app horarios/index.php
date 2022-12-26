@@ -36,7 +36,7 @@
         }
         
     };
-    $horas = ['7:00','8:00','9:00','10:00'];
+    $horas = ['7:00','8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];
     $dias = [
         'Lunes' => 'monday',
         'Martes' => 'thuesday',
@@ -60,17 +60,9 @@
     <title>SENA HORARIOS</title>
 </head>
 <body>
+    <script src="js/elementos.js"></script>
     <div>
-        <header class="header">
-            <i><a href="index.php"> icono </a></i>
-            <div>
-                <ul>
-                    <li><a href="#ingresar">ingresar</a></li>
-                    <li><a href="#consultar">horarios</a></li>
-                    <li><a href="#contacto">contacto</a></li>
-                </ul>
-            </div>
-        </header>
+        <script>crear_cabecera()</script>
         <main>
             <section class="consultar" id="#">
                 <div>
@@ -92,7 +84,11 @@
                                 <tr>
                                     <th colspan="7">HORARIOS ACTUALIZADOS <?php echo $fechaActual ?></th>
                                 </tr>
-                                <tr>
+                            </thead>
+                            <tbody>
+                                <td colspan="8"  class="scroll-table">
+                                    <table>
+                                    <tr>
                                     <th>hora</th>
                                     <th>Lunes</th>
                                     <th>Martes</th>
@@ -100,46 +96,49 @@
                                     <th>Jueves</th>
                                     <th>Viernes</th>
                                     <th>Sabado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                foreach ($horas as $hora){ // para cada una de las jornadas
-                                ?>
-                                <tr class="">
-                                    <th><?php echo $hora ?></th>
+                                    </tr>
                                     <?php
-                                    foreach ($dias as $dia => $codDia) { // para cada uno de los dias
-                                        $consulta = mysqli_query($conexion,$sql);
-                                        $resultado = mysqli_fetch_array($consulta);
-                                        foreach($asignaciones as $asignacion){ // para todas las asignaciones encontradas
-                                            if ($hora == $asignacion['hora_inicio'] and $codDia == $asignacion['nom_dia']){
+                                    foreach ($horas as $hora){ // para cada una de las jornadas
                                     ?>
-                                    <td class="registro">
-                                        <?php echo $asignacion['nom_competencia'] ?>
-                                        <div class="info">
-                                            <div class="dato"><b> instructor:</b> <span><?php echo $asignacion['nom_instructor']." ".$asignacion['apl_instructor'] ?></span></div>
-                                            <div class="dato"><b> resultado: </b><span><?php echo $asignacion['nom_resultado'] ?></span></div>
-                                            <div class="dato"><b> ambiente: </b><span><?php echo $asignacion['nom_ambiente'] ?></span></div>
-                                            <div class="dato"><b> horas restantes: </b><span>x</span></div>
-                                        </div>
-                                    </td>
-                                    <?php
-                                                break;
-                                            }else{
-                                                if (end($asignaciones) == $asignacion){ // si el registro que se esta revisando es el uñtimo de la tabla     
-                                    ?>
-                                    <td class="libre">libre</td>
-                                    <?php    
+                                    <tr class="">
+                                        <th><?php echo $hora ?></th>
+                                        <?php
+                                        foreach ($dias as $dia => $codDia) { // para cada uno de los dias
+                                            $consulta = mysqli_query($conexion,$sql);
+                                            $resultado = mysqli_fetch_array($consulta);
+                                            foreach($asignaciones as $asignacion){ // para todas las asignaciones encontradas
+                                                if ($hora == $asignacion['hora_inicio'] and $codDia == $asignacion['nom_dia']){
+                                        ?>
+                                        <td class="registro">
+                                            <?php echo $asignacion['nom_competencia'] ?>
+                                            <div class="info">
+                                                <br>
+                                                <div class="dato"><b> instructor:</b> <span><?php echo $asignacion['nom_instructor']." ".$asignacion['apl_instructor'] ?></span></div>
+                                                <div class="dato"><b> resultado: </b><span><?php echo $asignacion['nom_resultado'] ?></span></div>
+                                                <div class="dato"><b> ambiente: </b><span><?php echo $asignacion['nom_ambiente'] ?></span></div>
+                                                <div class="dato"><b> horas restantes: </b><span>x</span></div>
+                                                <br>
+                                            </div>
+                                        </td>
+                                        <?php
+                                                    break;
+                                                }else{
+                                                    if (end($asignaciones) == $asignacion){ // si el registro que se esta revisando es el uñtimo de la tabla     
+                                        ?>
+                                        <td class="libre">libre</td>
+                                        <?php    
+                                                    }
                                                 }
                                             }
                                         }
+                                        ?>
+                                    </tr>
+                                    <?php
                                     }
                                     ?>
-                                </tr>
-                                <?php
-                                }
-                                ?>
+                                    </table>
+                                </td>
+                                
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -159,7 +158,7 @@
                 <h2>INGRESE</h2>
                 <div>
                     <form action="">
-                        <h3><a href="coordinador.html">coordinador</a></h3>
+                        <h3><a href="coordinador-instructores.html">coordinador</a></h3>
                         <div><label for=""></label><input type="text"></div>
                         <div><label for=""></label><input type="text"></div>
                         <div><input type="button" value=""></div>
@@ -188,10 +187,7 @@
                 </div>
             </section>
         </main>
-        <footer class="footer">
-            <section class=""></section>
-            <section class="bottom"> <b>© 2022 CENTRO INDUSTRIAL Y DE ENERGIAS ALTERNATIVAS -</b>  todos los derechos reservados</section>
-        </footer>
+        <script>crear_pie()</script>
     </div>
     <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="js/consultas.js"></script>

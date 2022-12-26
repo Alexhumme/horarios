@@ -4,6 +4,6 @@
         if (is_array($console))
         $console = implode(',', $console);
     
-        echo "<script>console.log('Console: " . $console . "' );</script>";
+        echo "<script>console.log(`Console: " . $console . "`);</script>";
     };
 ?>

@@ -8,35 +8,13 @@
     <title>SENA horarios - coordinador</title>
 </head>
 <body>
-    <header class="header">
-        <i><a href="index.php"> icono </a></i>
-        <div>
-            <ul>
-                <li><a href="#ingresar">ingresar</a></li>
-                <li><a href="#consultar">horarios</a></li>
-                <li><a href="#contacto">contacto</a></li>
-            </ul>
-        </div>
-    </header>
+    <script src="js/elementos.js"></script> <!-- importar clases de elementos -->
+    <script>crear_cabecera()</script>
     <main>
         <div class="conteainer-page">
-            <aside class="container-sect menu">
-                <div>
-                    <i>icono</i>
-                    <span><b>nombre del coordinador</b></span>
-                    <span>coordinador</span>
-                </div>
-                <ul>
-                    <li><input type="radio" name="opc_modulo" id="mdl_asig"><label for="mdl_asig">Asignaciones</label></li>
-                    <li><input type="radio" name="opc_modulo" id="mdl_intr"><label for="mdl_intr">Intructores</label></li>
-                    <li><input type="radio" name="opc_modulo" id="mdl_ambt"><label for="mdl_ambt">Ambientes</label></li>
-                    <li><input type="radio" name="opc_modulo" id="mdl_fchs"><label for="mdl_fchs">Fichas</label></li>
-                </ul>
-            </aside>
+            <script>crear_coordinador_menu(1)</script>
             <aside class="conainer-sect">
-                <section class="modulo" id="adm_asig">
-                </section>
-                <section class="modulo" id="adm_intr">
+                <section class="modulo">
                     <div class="container-table adm_intr">
                         <form action="" method="post">
                         <table>
@@ -89,16 +67,10 @@
                         </form>
                     </div>
                 </section>
-                <section class="modulo" id="adm_ambt">
-                </section>
-                <section class="modulo" id="adm_fchs">
-                </section>
             </aside>
         </div>
     </main>
-    <footer class="footer">
-        <section class=""></section>
-        <section class="bottom"> <b>© 2022 CENTRO INDUSTRIAL Y DE ENERGIAS ALTERNATIVAS -</b>  todos los derechos reservados</section>
-    </footer>
+    <script>crear_pie()</script>
+    
 </body>
 </html>
