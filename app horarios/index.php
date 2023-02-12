@@ -123,7 +123,7 @@
                                         <?php
                                                     break;
                                                 }else{
-                                                    if (end($asignaciones) == $asignacion){ // si el registro que se esta revisando es el uñtimo de la tabla     
+                                                    if (end($asignaciones) == $asignacion){ // si el registro que se esta revisando es el ultimo de la tabla     
                                         ?>
                                         <td class="libre">libre</td>
                                         <?php    
@@ -158,7 +158,7 @@
                 <h2>INGRESE</h2>
                 <div>
                     <form action="">
-                        <h3><a href="coordinador-instructores.html">coordinador</a></h3>
+                        <h3><a href="coordinador-instructores.php">coordinador</a></h3>
                         <div><label for=""></label><input type="text"></div>
                         <div><label for=""></label><input type="text"></div>
                         <div><input type="button" value=""></div>

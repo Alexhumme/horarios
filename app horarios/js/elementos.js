@@ -45,12 +45,11 @@ class Menu {
             <ul>
         `;
         for (let itemId in self.items){
-            let clase = (self.index == itemId)?"selected":"";
             self.estructura += 
             `
-            <li class="${clase}">
-                <a href="${self.links[itemId]}">${self.items[itemId]}</a>
-            </li>
+            <a href="${self.links[itemId]}">
+                <li class="${(self.index == itemId)?"selected":""}">${self.items[itemId]}</li>
+            </a>
             `   
         }
         self.estructura += `</ul></aside>`
@@ -65,8 +64,8 @@ class Pie{
         self.estructura = 
         `
         <footer class="footer">
-        <section class=""></section>
         <section class="bottom"> <b>© 2022 CENTRO INDUSTRIAL Y DE ENERGIAS ALTERNATIVAS -</b>  todos los derechos reservados</section>
+        <section> Riohacha (La Guajira) - Colombia </section>
         </footer>
         `
     }
@@ -108,7 +107,7 @@ function crear_coordinador_menu(index){
         ],
         [
             "coordinador-asignaciones.html",
-            "coordinador-instructores.html",
+            "coordinador-instructores.php",
             "coordinador-ambientes.html",
             "coordinador-programas-fichas.html"
         ],
