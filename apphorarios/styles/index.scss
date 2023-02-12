@@ -1,0 +1,205 @@
+body{
+    margin: 0px;
+    padding: 0;
+    background-color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* header */
+
+.header{
+    background-color: rgb(226, 112, 35);
+    color: white;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    ul{
+        list-style: none;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+        li{
+            margin: 5px;
+            a{
+                color: aliceblue;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/* main */
+.container-page{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+}
+section{
+    margin: 5px;
+    padding: 20px;
+}
+.consultar{
+    display: flex;
+    justify-content: center;
+    div{
+        text-align: center;
+    }
+}
+/* barra de busqueda */
+
+.container-busqueda{
+    input{
+        &[type=text]{
+            border: 1px solid gray;
+            padding: 5px 5px 5px 15px;
+            border-radius: 20px 0 0 20px;
+        }
+        &[type=button]{
+            color:black;
+            padding: 5px;
+            border-radius: 0 20px 20px 0;
+            border: 1px solid gray;
+            border-left: none;
+            &:hover{
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+}
+/* modulos */
+.container-sect:not(.menu){
+    background-color: rgb(233, 233, 233);
+}
+/* formularios */
+
+/* menus */
+.menu{
+    width: 200px;
+    background-color: white;
+    text-align: center;
+    span{
+        display: block;
+    }
+    ul{
+        padding: 10px;
+        list-style: none;
+        li{
+            text-align: center;
+            background-color: rgb(226, 112, 35);
+            padding: 7px;
+            margin: 7px;
+            width: 150px;
+            font-weight: bolder;
+            border: solid 2px transparent;
+            &:hover{
+                border-color: blue;
+            }
+        }
+        .selected{
+            background-color: red;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
+
+
+
+/* tablas */
+.container-table{
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    table{
+        margin: 10px auto;
+        text-align: center;
+        border-spacing: 0px;
+        th{
+            background-color: rgba(128, 128, 128, 0.712);
+            border: solid 1px rgba(0, 0, 0, 0.226);
+            padding: 5px;
+        }
+        .libre{
+            color: gainsboro;
+        }
+        td:not(.input-cont,.scroll-table){
+            background-color: white;
+            height: 42px;
+            border: solid 1px rgba(0, 0, 0, 0.226);
+            padding: 5px;
+        }
+        thead{
+            
+        }
+        tbody{
+            .registro{
+                .info{
+                    display: none;
+                }
+                &:hover{
+                    background-color: darkgray;
+                    cursor:none;
+                    .info{
+                        position:relative;
+                        display: block;
+                        background-color: rgb(226, 112, 35);
+                        margin-top:10px;
+                        margin-left:-6px;
+                        border-radius: 0px 7px 7px 7px;
+                        color: white;
+                        padding: 10px;
+                        .dato{
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+            .add form{
+                display: flex;
+                .input-cont input[type="text"]{
+                    background-color: white;
+                    height: 42px;
+                    border: solid 1px rgba(0, 0, 0, 0.226);
+                    margin: 0px;
+                    padding: 0px;
+                    text-align: center;
+                }
+            }
+            .scroll-table{
+                height:300px;    
+                overflow-y: scroll;
+                display: block;
+                padding: 0px;
+                table{
+                    margin: 0px;
+                }
+            }
+
+        }
+        
+    }
+    tfoot{
+      
+    }
+}
+
+/* footer */
+
+.footer{
+    background-color: rgb(39, 39, 39);
+    color:white;
+    padding: 12px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .bottom{
+        text-align: left;
+        font-size: smaller;
+        padding: 10px;   
+    }
+}
