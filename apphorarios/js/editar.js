@@ -1,4 +1,5 @@
 function editarRegistro(id, tbl) {
+	// esta funcion solo funciona si los datos estan dentro de un tag cada uno, y estos a su vez dentro del tag principal del registro
 	const data = document.querySelector("#" + id);
 	let form = `<form method = "POST" action = "../../php/${tbl}/edit.php">`;
 	for (let child of data.children) {
@@ -7,6 +8,7 @@ function editarRegistro(id, tbl) {
                 <div>
                     <label>${child.classList[0]}</label>
                     <input 
+                        name = "${child.classList[0].toLowerCase()}"
                         class = "swal2-input" 
                         type = "${
 							child.classList.length == 1
@@ -15,14 +17,14 @@ function editarRegistro(id, tbl) {
 						}" 
                         id = "${child.classList[0]}"
                         placeholder = "${child.classList[0]}" 
-                        value = "${child.innerHTML}"
-                        ${
-							(child.classList[1] == "checkbox") &
-							(child.innerHTML == "1")
-								? "checked"
-								: ""
+                        value = ${
+							child.classList[1] == "checkbox"
+								? child.innerHTML == "1" || child.innerHTML == 1
+									? "'1' checked"
+									: "'1'"
+								: child.innerHTML
 						}
-                        ${child.classList[0] == "Id" ? "disabled" : ""}
+                        ${child.classList[0] == "Id" ? "readonly" : ""}
                         >
                 </div>
                 `)

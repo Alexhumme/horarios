@@ -33,7 +33,7 @@ $resultado = mysqli_fetch_array($consulta);
                 <section class="modulo">
                     <div class="container-table adm_intr">
                         <form action="../../php/instructor/aniadir.php" method="post">
-                            <table>
+                            <table class="table-striped">
                                 <thead>
                                     <tr>
                                         <th colspan="8">instructores</th>
@@ -46,43 +46,66 @@ $resultado = mysqli_fetch_array($consulta);
                                         <th>E-mail</th>
                                         <th>contratista</th>
                                         <th>activo</th>
+                                        <th>opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="add">
-                                        <td class="input-cont"><input type="text" name="cedula" placeholder="Documento" required></td>
-                                        <td class="input-cont"><input type="text" name="nombre" placeholder="Nombre" required></td>
-                                        <td class="input-cont"><input type="text" name="apellido" placeholder="Apellido" required></td>
-                                        <td class="input-cont"><input type="text" name="telefono" placeholder="Telefono" required></td>
-                                        <td class="input-cont"><input type="text" name="e-mail" placeholder="E-mail" required></td>
+                                        <td class="input-cont"><input type="text" name="cedula" placeholder="Documento"
+                                                required></td>
+                                        <td class="input-cont"><input type="text" name="nombre" placeholder="Nombre"
+                                                required></td>
+                                        <td class="input-cont"><input type="text" name="apellido" placeholder="Apellido"
+                                                required></td>
+                                        <td class="input-cont"><input type="text" name="telefono" placeholder="Telefono"
+                                                required></td>
+                                        <td class="input-cont"><input type="text" name="e-mail" placeholder="E-mail"
+                                                required></td>
                                         <td class="input-cont"><input type="checkbox" value=1 name="contratista"></td>
                                         <td class="input-cont"><input type="checkbox" value=1 name="activo"></td>
-                                        <td class="input-cont"><input type="reset" value="cancelar"></td>
-                                        <td class="input-cont"><input type="submit" value="añadir"></td>
+                                        <td class="input-cont">
+                                            <input type="reset" value="cancelar">
+                                            <input type="submit" value="añadir">
+                                        </td>
                                     </tr>
                                     <?php do { ?>
                                         <tr id="reg<?php echo $resultado["id"]; ?>">
-                                            <th class="Id"><?php echo $resultado["id"]; ?></th>
-                                            <td class="Nombre"><?php echo $resultado["nombre"]; ?></td>
-                                            <td class="Apellido"><?php echo $resultado["apellido"]; ?></td>
-                                            <td class="Telefono"><?php echo $resultado["telefono"]; ?></td>
-                                            <td class="Email"><?php echo $resultado["email"]; ?></td>
-                                            <td class="Contratista checkbox"><?php if ($resultado["contratista"]) {
-                                                                                    echo "1";
-                                                                                } else {
-                                                                                    echo "0";
-                                                                                }; ?></td>
-                                            <td class="Activo checkbox"><?php if ($resultado["activo"]) {
-                                                                            echo "1";
-                                                                        } else {
-                                                                            echo "0";
-                                                                        }; ?></td>
+                                            <th class="Id">
+                                                <?php echo $resultado["id"]; ?>
+                                            </th>
+                                            <td class="Nombre">
+                                                <?php echo $resultado["nombre"]; ?>
+                                            </td>
+                                            <td class="Apellido">
+                                                <?php echo $resultado["apellido"]; ?>
+                                            </td>
+                                            <td class="Telefono">
+                                                <?php echo $resultado["telefono"]; ?>
+                                            </td>
+                                            <td class="Email">
+                                                <?php echo $resultado["email"]; ?>
+                                            </td>
+                                            <td class="Contratista checkbox">
+                                                <?php if ($resultado["contratista"]) {
+                                                    echo "1";
+                                                } else {
+                                                    echo "0";
+                                                }
+                                                ; ?>
+                                            </td>
+                                            <td class="Activo checkbox">
+                                                <?php if ($resultado["activo"]) {
+                                                    echo "1";
+                                                } else {
+                                                    echo "0";
+                                                }
+                                                ; ?>
+                                            </td>
                                             <td class="opt">
-                                                opciones
-                                                <ul>
-                                                    <li><input type="button" value="delete" onclick="confirmarDelete('<?php echo $resultado['id'] ?>','instructor',1)"></li>
-                                                    <li><input type="button" value="edit" onclick="editarRegistro('reg<?php echo $resultado['id'] ?>','instructor')"></li>
-                                                </ul>
+                                                <input type="button" value="eliminar"
+                                                    onclick="confirmarDelete(<?php echo $resultado["id"]; ?>,'instructor',1)">
+                                                <input type="button" value="editar"
+                                                    onclick="editarRegistro('reg<?php echo $resultado["id"]; ?>','instructor')">
                                             </td>
                                         </tr>
                                     <?php } while ($resultado = mysqli_fetch_array($consulta)); ?>
@@ -102,16 +125,7 @@ $resultado = mysqli_fetch_array($consulta);
 
     <script src="../../js/eliminar.js"></script>
     <script src="../../js/editar.js"></script>
+    <script src="../../js/result.js"></script>
 </body>
 
 </html>
-<?php
-$er = $_GET["er"];
-$su = $_GET["su"];
-if ($er == 1) {
-    echo ("<script> swal.fire('no se pudo realizar la solicitud')</script>");
-};
-if ($su == 1) {
-    echo ("<script> swal.fire('solicitud exitosa')</script>");
-};
-?>

@@ -3,9 +3,9 @@
 include "../print.php";
 include "../conexion.php";
 
-$ROOT = "../../views/coordinador/coordinador-instructores.php?w=0";
+$ROOT = "../../views/coordinador/coordinador-ambientes.php?w=0";
 $id = $_GET["id"];
-$sql = "DELETE FROM instructor WHERE id = $id";
+$sql = "DELETE FROM ambientes WHERE idambiente = $id";
 
 imprimir($sql);
 $consulta = mysqli_query($conexion, $sql);
