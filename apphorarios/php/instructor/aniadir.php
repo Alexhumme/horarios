@@ -48,9 +48,9 @@ $sql = "INSERT
     $celular,
     '$email', 
     '$zona',
-    '$direccion'
+    '$direccion',
     $salario,
-    '$especialidad'
+    '$especialidad',
     $contratista, 
     $activo
     )";

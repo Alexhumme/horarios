@@ -37,7 +37,7 @@ class Menu {
 		self.estructura = `
         <aside class="container-sect menu">
             <div>
-                <i>${self.icon}</i>
+                <div class="avatar">${self.icon}</div>
                 <span><b>${self.usuario}</b></span>
                 <span>${self.titulo}</span>
             </div>
@@ -52,7 +52,7 @@ class Menu {
             </a>
             `;
 		}
-		self.estructura += `</ul></aside>`;
+		self.estructura += `</ul></aside><div class="contrast"></div>`;
 	}
 	imprimir() {
 		document.write(self.estructura);
