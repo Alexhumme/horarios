@@ -7,8 +7,14 @@ $cedula = $_POST["id"];
 $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $telefono = $_POST["telefono"];
+$celular = $_POST["celular"];
 $email = $_POST["email"];
 $contratista = $_POST["contratista"];
+$zona = $_POST["zona"];
+$direccion = $_POST["direccion"];
+$salario = $_POST["salario"];
+$especialidad = $_POST["especialidad"];
+
 if (!$contratista) {
     $contratista = 0;
 }
@@ -26,11 +32,15 @@ $sql = "UPDATE
     nombre = '$nombre',
     apellido = '$apellido',
     telefono = $telefono,
+    celular = $celular,
     email = '$email',
+    zona = '$zona',
+    direccion = '$direccion',
+    salario = '$salario',
+    especialidad = '$especialidad',
     contratista = $contratista,
     activo = $activo
     WHERE id = $cedula";
-imprimir($sql);
 
 $consulta = mysqli_query($conexion, $sql);
 if ($consulta) {

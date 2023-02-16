@@ -56,6 +56,7 @@ class Menu {
 	}
 	imprimir() {
 		document.write(self.estructura);
+		this.componente = document.getElementById("aside-menu");
 	}
 }
 

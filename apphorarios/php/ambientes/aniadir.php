@@ -22,7 +22,6 @@ $sql = "INSERT
     '$nombre',
     $funcional
     )";
-imprimir($sql);
 
 $consulta = mysqli_query($conexion, $sql);
 

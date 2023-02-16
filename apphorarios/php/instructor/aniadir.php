@@ -6,7 +6,13 @@ $ROOT = "../../views/coordinador/coordinador-instructores.php?w=0";
 $nombre = $_POST["nombre"];
 $apellido = $_POST["apellido"];
 $telefono = $_POST["telefono"];
+$celular = $_POST["celular"];
 $email = $_POST["e-mail"];
+$zona = $_POST["zona"];
+$direccion = $_POST["direccion"];
+$salario = $_POST["salario"];
+$especialidad = $_POST["especialidad"];
+
 $contratista = $_POST["contratista"];
 if (!$contratista) {
     $contratista = 0;
@@ -25,16 +31,26 @@ $sql = "INSERT
     nombre,
     apellido,
     telefono,
+    celular,
     email,
+    zona,
+    direccion,
+    salario,
+    especialidad,
     contratista,
     activo
     )
     VALUES(
-    '$cedula',
+    $cedula,
     '$nombre', 
     '$apellido', 
-    '$telefono', 
+    $telefono, 
+    $celular,
     '$email', 
+    '$zona',
+    '$direccion'
+    $salario,
+    '$especialidad'
     $contratista, 
     $activo
     )";

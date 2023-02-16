@@ -19,7 +19,6 @@ $sql = "UPDATE
     WHERE
     idambiente = $id
     ";
-imprimir($sql);
 
 $consulta = mysqli_query($conexion, $sql);
 
