@@ -7,6 +7,12 @@ body {
   overflow-x: hidden;
 }
 
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .sep::before {
   background: radial-gradient(rgba(26, 25, 25, 0.562), rgba(1, 1, 1, 0.329), rgba(0, 0, 0, 0.014), rgba(0, 0, 0, 0));
   width: 100%;
@@ -18,14 +24,7 @@ body {
 /* botones */
 button,
 input[type=button] {
-  opacity: 0.9;
-  border: none;
-  border-radius: 8px;
   cursor: pointer;
-}
-button:hover,
-input[type=button]:hover {
-  opacity: 1;
 }
 
 .block-btn {
@@ -33,6 +32,9 @@ input[type=button]:hover {
 }
 
 .primary-btn {
+  opacity: 0.9;
+  border: none;
+  border-radius: 8px;
   padding: 10px;
   background-color: rgb(223, 90, 28);
   color: white;
@@ -42,6 +44,9 @@ input[type=button]:hover {
   background-color: transparent;
   color: rgb(223, 90, 28);
   border: solid 2px rgb(223, 90, 28);
+}
+.primary-btn:hover {
+  opacity: 1;
 }
 
 /* grillas */

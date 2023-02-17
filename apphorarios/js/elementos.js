@@ -91,12 +91,13 @@ function crear_coordinador_menu(index) {
 		"icono",
 		"nombre del coordinador",
 		"coordinador",
-		["Asignaciones", "Instructores", "Ambientes", "Programas"],
+		["Asignaciones", "Instructores", "Ambientes", "Fichas", "Programas"],
 		[
 			"coordinador-asignaciones.php",
 			"coordinador-instructores.php",
 			"coordinador-ambientes.php",
-			"coordinador-programas-fichas.php",
+			"coordinador-fichas.php",
+			"coordinador-programas.php",
 		],
 		index
 	).imprimir();

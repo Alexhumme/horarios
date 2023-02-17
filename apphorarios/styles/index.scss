@@ -9,6 +9,12 @@ body {
     overflow-x: hidden;
 }
 
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .sep::before {
     background: radial-gradient(rgba(26, 25, 25, 0.562), rgba(1, 1, 1, 0.329), rgba(0, 0, 0, 0.014), rgba(0, 0, 0, 0));
     width: 100%;
@@ -20,14 +26,8 @@ body {
 /* botones */
 button,
 input[type=button] {
-    opacity: 0.9;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
 
-    &:hover {
-        opacity: 1;
-    }
+    cursor: pointer;
 }
 
 .block-btn {
@@ -35,6 +35,9 @@ input[type=button] {
 }
 
 .primary-btn {
+    opacity: 0.9;
+    border: none;
+    border-radius: 8px;
     padding: 10px;
     background-color: $primary;
     color: white;
@@ -44,6 +47,10 @@ input[type=button] {
         background-color: transparent;
         color: $primary;
         border: solid 2px $primary;
+    }
+
+    &:hover {
+        opacity: 1;
     }
 
 }

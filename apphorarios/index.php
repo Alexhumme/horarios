@@ -64,7 +64,7 @@ $fechaActual = date('D-m-Y');
 </head>
 
 <body>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- alertas -->
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="./js/elementos.js"></script>
     <script src="./js/result.js"></script>
     <div>
@@ -218,7 +218,6 @@ $fechaActual = date('D-m-Y');
     </div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="./js/consultas.js"></script>
-
 
 </body>
 

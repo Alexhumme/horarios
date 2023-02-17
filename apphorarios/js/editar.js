@@ -5,7 +5,7 @@ function editarRegistro(id, tbl) {
 	for (let child of data.children) {
 		child.classList[0] != "opt"
 			? (form += `
-                <div>
+                <div class="justify-between">
                     <label>${child.classList[0]}</label>
                     <input 
                         name = "${child.classList[0].toLowerCase()}"

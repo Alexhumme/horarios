@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="../../js/elementos.js"></script> <!-- importar clases de elementos -->
     <script>
         crear_cabecera()

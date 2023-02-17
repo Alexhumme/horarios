@@ -3,18 +3,19 @@ include "../../php/print.php";
 include "../../php/conexion.php";
 
 //error_reporting(0);
-$sql = "SELECT * FROM ambientes";
+$sql = "SELECT * FROM programas";
 $consulta = mysqli_query($conexion, $sql);
 $resultado = mysqli_fetch_array($consulta);
 if (mysqli_num_rows($consulta) > 0) {
-    $listaAmbientes = [];
+    $listaProgramas = [];
     do {
-        $listaAmbientes[] = $resultado;
+        $listaProgramas[] = $resultado;
     } while ($resultado = mysqli_fetch_array($consulta));
 } else {
-    $listaAmbientes = false;
+    $listaProgramas = false;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,30 +28,32 @@ if (mysqli_num_rows($consulta) > 0) {
 </head>
 
 <body>
-    <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script><!-- alertas -->
-    <script src="../../js/elementos.js"></script> <!-- importar clases y metodos de elementos prediseñados  -->
+    <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="../../js/elementos.js"></script> <!-- importar clases de elementos -->
     <script>
         crear_cabecera()
     </script>
     <main>
         <div class="container-page">
             <script>
-                crear_coordinador_menu(2)
+                crear_coordinador_menu(4)
             </script>
             <aside class="container-sect">
                 <section class="modulo">
-                    <?php if ($listaAmbientes) { ?>
+                    <?php if ($listaProgramas) { ?>
                         <div class="container-table adm_intr">
-                            <form action="../../php/ambientes/aniadir.php" method="post">
+                            <form action="../../php/programas/aniadir.php" method="post">
                                 <table class="table-striped">
                                     <thead>
                                         <tr>
-                                            <th colspan="8">ambientes</th>
+                                            <th colspan="8">programas</th>
                                         </tr>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Nombre</th>
-                                            <th>Funcional</th>
+                                            <th>Programa</th>
+                                            <th>Nivel</th>
+                                            <th>Horas lectivas</th>
+                                            <th>Horas productivas</th>
                                             <th>Opciones</th>
                                         </tr>
                                     </thead>
@@ -60,32 +63,44 @@ if (mysqli_num_rows($consulta) > 0) {
                                                 <input type="text" name="id" placeholder="Id" id="id-input">
                                                 <input type="button" value="AG" onclick="autoGenUID()">
                                             </td>
-                                            <td class="input-cont"><input type="text" name="nombre" placeholder="Nombre"
+                                            <td class="input-cont"><input type="text" name="programa" placeholder="Nombre"
                                                     required></td>
                                             <td>
-                                                <input type="checkbox" name="funcional" id="">
+                                                <input type="text" name="nivel" placeholder="Nivel" required>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="horasL" placeholder="Horas lectivas">
+                                            </td>
+                                            <td>
+                                                <input type="number" name="horasP" placeholder="Horas productivas">
                                             </td>
                                             <td class="input-cont">
                                                 <input type="reset" value="cancelar">
                                                 <input type="submit" value="añadir">
                                             </td>
                                         </tr>
-                                        <?php foreach ($listaAmbientes as $ambiente) { ?>
-                                            <tr id="reg<?php echo $ambiente["idambiente"]; ?>">
+                                        <?php foreach ($listaProgramas as $programa) { ?>
+                                            <tr id="reg<?php echo $programa["idprograma"]; ?>">
                                                 <th class="Id">
-                                                    <?php echo $ambiente["idambiente"]; ?>
+                                                    <?php echo $programa["idprograma"]; ?>
                                                 </th>
-                                                <td class="Nombre">
-                                                    <?php echo $ambiente["ambiente"]; ?>
+                                                <td class="Programa">
+                                                    <?php echo $programa["programa"]; ?>
                                                 </td>
-                                                <td class="Funcional checkbox">
-                                                    <?php echo $ambiente["funcional"]; ?>
+                                                <td class="Nivel">
+                                                    <?php echo $programa["nivel"]; ?>
+                                                </td>
+                                                <td class="Horas_lectivas">
+                                                    <?php echo $programa["horas_lectivas"]; ?>
+                                                </td>
+                                                <td class="Horas_productivas">
+                                                    <?php echo $programa["horas_productivas"]; ?>
                                                 </td>
                                                 <td class="opt">
                                                     <input type="button" value="eliminar"
-                                                        onclick="confirmarDelete(<?php echo $ambiente["idambiente"]; ?>,'ambientes',1)">
+                                                        onclick="confirmarDelete(<?php echo $programa["idprograma"]; ?>,'programas',1)">
                                                     <input type="button" value="editar"
-                                                        onclick="editarRegistro('reg<?php echo $ambiente["idambiente"]; ?>','ambientes')">
+                                                        onclick="editarRegistro('reg<?php echo $programa["idprograma"]; ?>','programas')">
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -95,7 +110,7 @@ if (mysqli_num_rows($consulta) > 0) {
                             </form>
                         </div>
                     <?php } else { ?>
-                        <div class="empty-DB">no se encontraron ambientes</div>
+                        <div class="empty-DB">no se encontraron programas</div>
                     <?php } ?>
                 </section>
             </aside>
@@ -109,6 +124,7 @@ if (mysqli_num_rows($consulta) > 0) {
     <script src="../../js/eliminar.js"></script>
     <script src="../../js/editar.js"></script>
     <script src="../../js/result.js"></script>
+    <script>getResultadoToast()</script>
 </body>
 
 </html>
